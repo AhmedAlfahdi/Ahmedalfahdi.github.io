@@ -1,0 +1,16 @@
+.bg-light {
+  background-color: #eeeeee !important;
+  border-radius: 3px;
+  color: black;
+}
+
+.bg-dark {
+  background-color: #2b2b28 !important;
+  color: #e8d6d1;
+}
+
+.lightswitch-enlarge {
+  width: 48px !important;
+  height: 24px !important;
+}
+

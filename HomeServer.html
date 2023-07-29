@@ -1,85 +1,117 @@
-<!DOCTYPE html><html data-bs-theme="auto"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Project Page - Brand</title>
-			<script>
-(function() {
+<!DOCTYPE html>
+<html data-bs-theme="auto">
 
-	// JavaScript snippet handling Dark/Light mode switching
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Project Page - Brand</title>
+    <script>
+        (function() {
 
-	const getStoredTheme = () => localStorage.getItem('theme');
-	const setStoredTheme = theme => localStorage.setItem('theme', theme);
-	const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+            // JavaScript snippet handling Dark/Light mode switching
 
-	const getPreferredTheme = () => {
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
 
-		if (forcedTheme) return forcedTheme;
+            const getPreferredTheme = () => {
 
-		const storedTheme = getStoredTheme();
-		if (storedTheme) {
-			return storedTheme;
-		}
+                if (forcedTheme) return forcedTheme;
 
-		const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
 
-		if (pageTheme) {
-			return pageTheme;
-		}
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
 
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
+                if (pageTheme) {
+                    return pageTheme;
+                }
 
-	const setTheme = theme => {
-		if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			document.documentElement.setAttribute('data-bs-theme', 'dark');
-		} else {
-			document.documentElement.setAttribute('data-bs-theme', theme);
-		}
-	}
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
 
-	setTheme(getPreferredTheme());
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
 
-	const showActiveTheme = (theme, focus = false) => {
-		const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+            setTheme(getPreferredTheme());
 
-		if (!themeSwitchers.length) return;
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
 
-		for (const themeSwitcher of themeSwitchers) {
+                if (!themeSwitchers.length) return;
 
-			const themeSwitcherText = document.querySelector('#theme-text');
-			const activeThemeIcon = document.querySelector('.theme-icon-active use');
-			const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
+                for (const themeSwitcher of themeSwitchers) {
 
-			document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-				element.classList.remove('active');
-				element.setAttribute('aria-pressed', 'false');
-			});
+                    const themeSwitcherText = document.querySelector('#theme-text');
+                    const activeThemeIcon = document.querySelector('.theme-icon-active use');
+                    const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
 
-			btnToActive.classList.add('active');
-			btnToActive.setAttribute('aria-pressed', 'true');
-		}
-	}
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                        element.classList.remove('active');
+                        element.setAttribute('aria-pressed', 'false');
+                    });
 
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		const storedTheme = getStoredTheme();
-		if (storedTheme !== 'light' && storedTheme !== 'dark') {
-			setTheme(getPreferredTheme());
-		}
-	});
+                    btnToActive.classList.add('active');
+                    btnToActive.setAttribute('aria-pressed', 'true');
+                }
+            }
 
-	window.addEventListener('DOMContentLoaded', () => {
-		showActiveTheme(getPreferredTheme());
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
 
-		document.querySelectorAll('[data-bs-theme-value]')
-			.forEach(toggle => {
-				toggle.addEventListener('click', (e) => {
-					e.preventDefault();
-					const theme = toggle.getAttribute('data-bs-theme-value');
-					setStoredTheme(theme);
-					setTheme(theme);
-					showActiveTheme(theme);
-				})
-			})
-	});
-})();
-</script><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="assets/fonts/ionicons.min.css"><link rel="stylesheet" href="assets/css/styles.min.css"></head><body><nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-opacity-25 portfolio-navbar gradient"><div class="container"><a class="navbar-brand logo" href="index.html">Ahmed N. Al Fahdi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="PDO.html">PDO</a></li><li class="nav-item"><a class="nav-link" href="GuTech.html">GuTech</a></li><li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="HomeServer.html">Other Projects</a><div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="HomeServer.html">Home server</a><div class="dropdown-divider"></div><h6 class="dropdown-header">Upcoming Projects&nbsp;</h6><a class="dropdown-item" href="#">Game Dev.</a><a class="dropdown-item" href="#">Web Dev.</a><a class="dropdown-item" href="#">Blog &amp; articles&nbsp;</a></div></li></ul></div>
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Lato.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Dark-Mode-Switch.css">
+    <link rel="stylesheet" href="assets/css/Features-Large-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Lightswitch.css">
+    <link rel="stylesheet" href="assets/css/pikaday.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-opacity-25 portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="index.html">Ahmed N. Al Fahdi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PDO.html">PDO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="GuTech.html">GuTech</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="HomeServer.html">Other Projects</a>
+                        <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="HomeServer.html">Home server</a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Upcoming Projects&nbsp;</h6><a class="dropdown-item" href="#">Game Dev.</a><a class="dropdown-item" href="#">Web Dev.</a><a class="dropdown-item" href="#">Blog &amp; articles&nbsp;</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 <div class="form-check form-switch ms-auto mt-3 me-3">
   <label class="form-check-label ms-3" for="lightSwitch">
     <svg 
@@ -106,4 +138,60 @@
 </svg>
   </label>
   <input title="Toggle dark mode" placeholer="" class="form-check-input lightswitch-enlarge" type="checkbox" id="lightSwitch" />
-</div></div></nav><main class="page project-page"><div class="container"><div class="row"><div class="col-md-12"><article class="py-4 py-xl-5"><div class="row gy-4 gy-md-0"><div class="col-auto col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center"><div style="max-width: 350px;"><h2 class="text-uppercase fw-bold">Home Server </h2><p class="my-3" style="margin-bottom: 104px;margin-top: 64px;padding-top: 18px;text-align: justify;margin-left: -58px;width: 556px;padding-right: 106px;margin-right: -47px;padding-left: 64px;padding-bottom: 25px;">The Raspberry Pi 3B+ can be effectively utilized as a home server by running multiple Docker services, allowing you to easily deploy and manage various applications in isolated containers. Additionally, integrating Pihole into the setup enables network-wide ad-blocking and improves overall browsing privacy by acting as a DNS sinkhole. This compact and energy-efficient solution offers a versatile platform for hosting essential services while ensuring a smoother and safer online experience for all devices on your network.</p></div></div><div class="col-auto col-md-6"><div class="p-xl-5 m-xl-5"><img class="rounded w-100 fit-cover" style="min-height: 300px;" src="assets/img/raspberry-pi-3-raspberry-pi-the-complete-manual-printed-circuit-board-camera-module-computer-7b6cd8fa1882db264443475b387007dc.png" width="444" height="400"></div></div></div></article></div></div></div><div class="container"><div class="row"><div class="col-md-12"><h1>Running Services&nbsp;</h1><h2>Pihole</h2><p style="font-size: 20px;">Pi-hole is a network-wide ad blocker that runs on the headless Linux Raspbian OS on the Raspberry Pi 3B+. It acts as a DNS sinkhole, intercepting and filtering out ad requests from all devices on the network, thus preventing ads from being displayed across devices and enhancing privacy while browsing.<br><br><br><picture><img class="img-fluid" src="assets/img/Pihole_interface%20.png"></picture></p><h3>Portainer&nbsp;</h3><ul class="list-group"></ul><p style="text-align: justify;font-size: 20px;"><picture><img class="img-fluid" src="assets/img/Portainer_interface.png"></picture><br><br><br>Portainer is a user-friendly and web-based management tool that allows you to easily deploy, manage, and monitor Docker containers on the Raspberry Pi. By utilizing Portainer, you can effortlessly run and maintain various applications in isolated containers, such as:<br><br><br>&nbsp;1. File Browser: File Browser is a file manager designed for the web. Running it as a Docker container through Portainer enables user to access, manage, and share your files remotely, creating a convenient way to interact with your Raspberry Pi's storage over the network.<br><br>&nbsp;2. Tsks.md (Tasks Markdown): Tsks.md is a custom application or script that uses Markdown formatting for task management. Deploying it as a Docker container allows you to keep track of tasks and to-do lists in a structured and organized manner, accessible from any device on home network.<br><br>&nbsp;3. Dash: Dash is a web-based dashboard application that can be deployed through Portainer as a Docker container. Dash enables you to create customizable dashboards, presenting various data, statistics, and information in a visually appealing and easy-to-read format.<br><br><picture><img class="img-fluid" src="assets/img/Homarr_interface.png"></picture><br><br>By combining Pi-hole, Portainer, and various Docker containers like File Browser, Tsks.md, Dash, and Homarr on your Raspberry Pi 3B+, you create a powerful and versatile home server setup that enhances network security, simplifies application management, and provides convenient access to essential services and data.<br>SSH (Secure Shell) on a Raspberry Pi is a network protocol that allows secure remote access to the Raspberry Pi's command-line interface (CLI) over a network. It provides a way to connect to and control the Raspberry Pi remotely from another computer or device.<br><br><br><picture><img class="img-fluid" src="assets/img/ssh.png" style="text-align: center;"></picture><br><br><br>When SSH is enabled on a Raspberry Pi, you can use a terminal or command prompt on your computer to connect to the Raspberry Pi's command-line interface. This enables you to execute commands, manage files, and perform various tasks on the Raspberry Pi as if you were directly using its keyboard and monitor.<br><br>SSH ensures secure communication by encrypting data sent between the client (your computer) and the server (the Raspberry Pi), protecting sensitive information from potential eavesdropping or unauthorized access.<br><br>SSH is particularly useful for headless setups, where the Raspberry Pi is running without a monitor, keyboard, or mouse. With SSH, you can access and control the Raspberry Pi from any device on the same network, making it easier to manage and administer the Raspberry Pi remotely.</p></div></div></div></main><footer class="page-footer py-3 border-top"><div class="container my-4"><div class="links"></div><div class="social-icons"><a class="me-3" href="https://github.com/AhmedAlfahdi"><i class="icon ion-social-github"></i></a><a class="me-3" href="www.linkedin.com/in/AhmedAlfahdi"><i class="icon ion-social-linkedin"></i></a></div></div></footer><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
+</div>
+        </div>
+    </nav>
+    <main class="page project-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="py-4 py-xl-5">
+                        <div class="row gy-4 gy-md-0">
+                            <div class="col-auto col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center">
+                                <div style="max-width: 350px;">
+                                    <h2 class="text-uppercase fw-bold">Home Server </h2>
+                                    <p class="my-3" style="margin-bottom: 104px;margin-top: 64px;padding-top: 18px;text-align: justify;margin-left: -58px;width: 556px;padding-right: 106px;margin-right: -47px;padding-left: 64px;padding-bottom: 25px;">The Raspberry Pi 3B+ can be effectively utilized as a home server by running multiple Docker services, allowing you to easily deploy and manage various applications in isolated containers. Additionally, integrating Pihole into the setup enables network-wide ad-blocking and improves overall browsing privacy by acting as a DNS sinkhole. This compact and energy-efficient solution offers a versatile platform for hosting essential services while ensuring a smoother and safer online experience for all devices on your network.</p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-md-6">
+                                <div class="p-xl-5 m-xl-5"><img class="rounded w-100 fit-cover" style="min-height: 300px;" src="assets/img/raspberry-pi-3-raspberry-pi-the-complete-manual-printed-circuit-board-camera-module-computer-7b6cd8fa1882db264443475b387007dc.png" width="444" height="400"></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Running Services&nbsp;</h1>
+                    <h2>Pihole</h2>
+                    <p style="font-size: 20px;">Pi-hole is a network-wide ad blocker that runs on the headless Linux Raspbian OS on the Raspberry Pi 3B+. It acts as a DNS sinkhole, intercepting and filtering out ad requests from all devices on the network, thus preventing ads from being displayed across devices and enhancing privacy while browsing.<br><br><br>
+                        <picture><img class="img-fluid" src="assets/img/Pihole_interface%20.png"></picture>
+                    </p>
+                    <h3>Portainer&nbsp;</h3>
+                    <ul class="list-group"></ul>
+                    <p style="text-align: justify;font-size: 20px;">
+                        <picture><img class="img-fluid" src="assets/img/Portainer_interface.png"></picture><br><br><br>Portainer is a user-friendly and web-based management tool that allows you to easily deploy, manage, and monitor Docker containers on the Raspberry Pi. By utilizing Portainer, you can effortlessly run and maintain various applications in isolated containers, such as:<br><br><br>&nbsp;1. File Browser: File Browser is a file manager designed for the web. Running it as a Docker container through Portainer enables user to access, manage, and share your files remotely, creating a convenient way to interact with your Raspberry Pi's storage over the network.<br><br>&nbsp;2. Tsks.md (Tasks Markdown): Tsks.md is a custom application or script that uses Markdown formatting for task management. Deploying it as a Docker container allows you to keep track of tasks and to-do lists in a structured and organized manner, accessible from any device on home network.<br><br>&nbsp;3. Dash: Dash is a web-based dashboard application that can be deployed through Portainer as a Docker container. Dash enables you to create customizable dashboards, presenting various data, statistics, and information in a visually appealing and easy-to-read format.<br><br>
+                        <picture><img class="img-fluid" src="assets/img/Homarr_interface.png"></picture><br><br>By combining Pi-hole, Portainer, and various Docker containers like File Browser, Tsks.md, Dash, and Homarr on your Raspberry Pi 3B+, you create a powerful and versatile home server setup that enhances network security, simplifies application management, and provides convenient access to essential services and data.<br>SSH (Secure Shell) on a Raspberry Pi is a network protocol that allows secure remote access to the Raspberry Pi's command-line interface (CLI) over a network. It provides a way to connect to and control the Raspberry Pi remotely from another computer or device.<br><br><br>
+                        <picture><img class="img-fluid" src="assets/img/ssh.png" style="text-align: center;"></picture><br><br><br>When SSH is enabled on a Raspberry Pi, you can use a terminal or command prompt on your computer to connect to the Raspberry Pi's command-line interface. This enables you to execute commands, manage files, and perform various tasks on the Raspberry Pi as if you were directly using its keyboard and monitor.<br><br>SSH ensures secure communication by encrypting data sent between the client (your computer) and the server (the Raspberry Pi), protecting sensitive information from potential eavesdropping or unauthorized access.<br><br>SSH is particularly useful for headless setups, where the Raspberry Pi is running without a monitor, keyboard, or mouse. With SSH, you can access and control the Raspberry Pi from any device on the same network, making it easier to manage and administer the Raspberry Pi remotely.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer py-3 border-top">
+        <div class="container my-4">
+            <div class="links"></div>
+            <div class="social-icons"><a class="me-3" href="https://github.com/AhmedAlfahdi"><i class="icon ion-social-github"></i></a><a class="me-3" href="www.linkedin.com/in/AhmedAlfahdi"><i class="icon ion-social-linkedin"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Dark-Mode-Switch-darkmode.js"></script>
+    <script src="assets/js/Lightswitch-lightswitch.js"></script>
+    <script src="assets/js/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

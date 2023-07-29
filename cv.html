@@ -1,85 +1,117 @@
-<!DOCTYPE html><html data-bs-theme="auto"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>CV - Brand</title>
-			<script>
-(function() {
+<!DOCTYPE html>
+<html data-bs-theme="auto">
 
-	// JavaScript snippet handling Dark/Light mode switching
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CV - Brand</title>
+    <script>
+        (function() {
 
-	const getStoredTheme = () => localStorage.getItem('theme');
-	const setStoredTheme = theme => localStorage.setItem('theme', theme);
-	const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+            // JavaScript snippet handling Dark/Light mode switching
 
-	const getPreferredTheme = () => {
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
 
-		if (forcedTheme) return forcedTheme;
+            const getPreferredTheme = () => {
 
-		const storedTheme = getStoredTheme();
-		if (storedTheme) {
-			return storedTheme;
-		}
+                if (forcedTheme) return forcedTheme;
 
-		const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
 
-		if (pageTheme) {
-			return pageTheme;
-		}
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
 
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
+                if (pageTheme) {
+                    return pageTheme;
+                }
 
-	const setTheme = theme => {
-		if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			document.documentElement.setAttribute('data-bs-theme', 'dark');
-		} else {
-			document.documentElement.setAttribute('data-bs-theme', theme);
-		}
-	}
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
 
-	setTheme(getPreferredTheme());
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
 
-	const showActiveTheme = (theme, focus = false) => {
-		const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+            setTheme(getPreferredTheme());
 
-		if (!themeSwitchers.length) return;
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
 
-		for (const themeSwitcher of themeSwitchers) {
+                if (!themeSwitchers.length) return;
 
-			const themeSwitcherText = document.querySelector('#theme-text');
-			const activeThemeIcon = document.querySelector('.theme-icon-active use');
-			const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
+                for (const themeSwitcher of themeSwitchers) {
 
-			document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-				element.classList.remove('active');
-				element.setAttribute('aria-pressed', 'false');
-			});
+                    const themeSwitcherText = document.querySelector('#theme-text');
+                    const activeThemeIcon = document.querySelector('.theme-icon-active use');
+                    const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
 
-			btnToActive.classList.add('active');
-			btnToActive.setAttribute('aria-pressed', 'true');
-		}
-	}
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                        element.classList.remove('active');
+                        element.setAttribute('aria-pressed', 'false');
+                    });
 
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		const storedTheme = getStoredTheme();
-		if (storedTheme !== 'light' && storedTheme !== 'dark') {
-			setTheme(getPreferredTheme());
-		}
-	});
+                    btnToActive.classList.add('active');
+                    btnToActive.setAttribute('aria-pressed', 'true');
+                }
+            }
 
-	window.addEventListener('DOMContentLoaded', () => {
-		showActiveTheme(getPreferredTheme());
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
 
-		document.querySelectorAll('[data-bs-theme-value]')
-			.forEach(toggle => {
-				toggle.addEventListener('click', (e) => {
-					e.preventDefault();
-					const theme = toggle.getAttribute('data-bs-theme-value');
-					setStoredTheme(theme);
-					setTheme(theme);
-					showActiveTheme(theme);
-				})
-			})
-	});
-})();
-</script><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="assets/fonts/ionicons.min.css"><link rel="stylesheet" href="assets/css/styles.min.css"></head><body><nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-opacity-25 portfolio-navbar gradient"><div class="container"><a class="navbar-brand logo" href="index.html">Ahmed N. Al Fahdi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="PDO.html">PDO</a></li><li class="nav-item"><a class="nav-link" href="GuTech.html">GuTech</a></li><li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="HomeServer.html">Other Projects</a><div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="HomeServer.html">Home server</a><div class="dropdown-divider"></div><h6 class="dropdown-header">Upcoming Projects&nbsp;</h6><a class="dropdown-item" href="#">Game Dev.</a><a class="dropdown-item" href="#">Web Dev.</a><a class="dropdown-item" href="#">Blog &amp; articles&nbsp;</a></div></li></ul></div>
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Lato.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Dark-Mode-Switch.css">
+    <link rel="stylesheet" href="assets/css/Features-Large-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Lightswitch.css">
+    <link rel="stylesheet" href="assets/css/pikaday.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-opacity-25 portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="index.html">Ahmed N. Al Fahdi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PDO.html">PDO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="GuTech.html">GuTech</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="HomeServer.html">Other Projects</a>
+                        <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="HomeServer.html">Home server</a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Upcoming Projects&nbsp;</h6><a class="dropdown-item" href="#">Game Dev.</a><a class="dropdown-item" href="#">Web Dev.</a><a class="dropdown-item" href="#">Blog &amp; articles&nbsp;</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 <div class="form-check form-switch ms-auto mt-3 me-3">
   <label class="form-check-label ms-3" for="lightSwitch">
     <svg 
@@ -106,10 +138,138 @@
 </svg>
   </label>
   <input title="Toggle dark mode" placeholer="" class="form-check-input lightswitch-enlarge" type="checkbox" id="lightSwitch" />
-</div></div></nav><main class="page cv-page"><section class="portfolio-block block-intro border-bottom"><div class="container"><div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div><div class="about-me"><p>Hello! I am <strong>John Smith</strong>. I work as interface and front end developer. I have passion for pixel perfect, minimal and easy to use interfaces.</p><a class="btn btn-outline-primary" role="button" href="#">Hire me</a></div></div></section><section class="portfolio-block cv"><div class="container"><div class="work-experience group"><div class="heading"><h2 class="text-center">Work Experience</h2></div><div class="item"><div class="row"><div class="col-md-6"><h3>Pipeline Engineer&nbsp;</h3><span class="badge rounded-pill bg-primary">PDO co.</span></div><div class="col-md-6"><span class="text-muted period">10/2021 - 04/2022</span></div></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div><div class="item"><div class="row"><div class="col-6"><h3>Front End Developer</h3><span class="badge rounded-pill bg-primary">Innovative&nbsp;Org.</span></div><div class="col-md-6"><span class="text-muted period">05/2015 - 12/2017</span></div></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div></div><div class="education group"><div class="heading"><h2 class="text-center">Education</h2></div><div class="item"><div class="row"><div class="col-md-6"><h3>High School</h3><span class="badge rounded-pill bg-success">Albert Einstein School</span></div><div class="col-6"><span class="text-muted period">09/2005 - 05/2010</span></div></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div><div class="item"><div class="row"><div class="col-md-6"><h3>Applied Physics</h3><span class="badge rounded-pill bg-success">Stephen Hawking College</span></div><div class="col-md-6"><span class="text-muted period">09/2010 - 06/2015</span></div></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div><div class="item"><div class="row"><div class="col-md-6"><h3>Applied Physics</h3><span class="badge rounded-pill bg-success">Stephen Hawking College</span></div><div class="col-md-6"><span class="text-muted period">09/2010 - 06/2015</span></div></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div></div><div class="group"><div class="row"><div class="col-md-6"><div class="border rounded border-0 skills portfolio-info-card"><h2>Skills</h2><h3>HTML</h3><div class="progress">
-			<div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="visually-hidden">100%</span></div>
-		</div><h3>PHP</h3><div class="progress">
-			<div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="visually-hidden">90%</span></div>
-		</div><h3>JavaScript</h3><div class="progress">
-			<div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="visually-hidden">80%</span></div>
-		</div></div></div><div class="col-md-6"><div class="border rounded border-0 contact-info portfolio-info-card"><h2>Contact Info</h2><div class="row"><div class="col-auto"><i class="icon ion-android-calendar icon"></i></div><div class="col-9"><span>10/10/1990</span></div></div><div class="row"><div class="col-auto"><i class="icon ion-person icon"></i></div><div class="col-9"><span>John Smith</span></div></div><div class="row"><div class="col-auto"><i class="icon ion-ios-telephone icon"></i></div><div class="col-9"><span>+235 3217 424</span></div></div><div class="row"><div class="col-auto"><i class="icon ion-at icon"></i></div><div class="col-9"><span>lorem@email.com</span></div></div></div></div></div></div><div class="hobbies group"><div class="heading"><h2 class="text-center">Hobbies</h2></div><p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus ligula, iaculis ut metus sit amet, luctus pharetra mauris. Aliquam purus felis, pretium vel pretium vitae, dapibus sodales ante. Suspendisse potenti. Duis nunc eros.</p></div></div></section></main><footer class="page-footer py-3 border-top"><div class="container my-4"><div class="links"></div><div class="social-icons"><a class="me-3" href="https://github.com/AhmedAlfahdi"><i class="icon ion-social-github"></i></a><a class="me-3" href="www.linkedin.com/in/AhmedAlfahdi"><i class="icon ion-social-linkedin"></i></a></div></div></footer><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
+</div>
+        </div>
+    </nav>
+    <main class="page cv-page">
+        <section class="portfolio-block block-intro border-bottom">
+            <div class="container">
+                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div>
+                <div class="about-me">
+                    <p>Hello! I am <strong>John Smith</strong>. I work as interface and front end developer. I have passion for pixel perfect, minimal and easy to use interfaces.</p><a class="btn btn-outline-primary" role="button" href="#">Hire me</a>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block cv">
+            <div class="container">
+                <div class="work-experience group">
+                    <div class="heading">
+                        <h2 class="text-center">Work Experience</h2>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Pipeline Engineer&nbsp;</h3><span class="badge rounded-pill bg-primary">PDO co.</span>
+                            </div>
+                            <div class="col-md-6"><span class="text-muted period">10/2021 - 04/2022</span></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>Front End Developer</h3><span class="badge rounded-pill bg-primary">Innovative&nbsp;Org.</span>
+                            </div>
+                            <div class="col-md-6"><span class="text-muted period">05/2015 - 12/2017</span></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    </div>
+                </div>
+                <div class="education group">
+                    <div class="heading">
+                        <h2 class="text-center">Education</h2>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>High School</h3><span class="badge rounded-pill bg-success">Albert Einstein School</span>
+                            </div>
+                            <div class="col-6"><span class="text-muted period">09/2005 - 05/2010</span></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Applied Physics</h3><span class="badge rounded-pill bg-success">Stephen Hawking College</span>
+                            </div>
+                            <div class="col-md-6"><span class="text-muted period">09/2010 - 06/2015</span></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Applied Physics</h3><span class="badge rounded-pill bg-success">Stephen Hawking College</span>
+                            </div>
+                            <div class="col-md-6"><span class="text-muted period">09/2010 - 06/2015</span></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="border rounded border-0 skills portfolio-info-card">
+                                <h2>Skills</h2>
+                                <h3>HTML</h3>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="visually-hidden">100%</span></div>
+                                </div>
+                                <h3>PHP</h3>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="visually-hidden">90%</span></div>
+                                </div>
+                                <h3>JavaScript</h3>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="visually-hidden">80%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded border-0 contact-info portfolio-info-card">
+                                <h2>Contact Info</h2>
+                                <div class="row">
+                                    <div class="col-auto"><i class="icon ion-android-calendar icon"></i></div>
+                                    <div class="col-9"><span>10/10/1990</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto"><i class="icon ion-person icon"></i></div>
+                                    <div class="col-9"><span>John Smith</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto"><i class="icon ion-ios-telephone icon"></i></div>
+                                    <div class="col-9"><span>+235 3217 424</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto"><i class="icon ion-at icon"></i></div>
+                                    <div class="col-9"><span>lorem@email.com</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hobbies group">
+                    <div class="heading">
+                        <h2 class="text-center">Hobbies</h2>
+                    </div>
+                    <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus ligula, iaculis ut metus sit amet, luctus pharetra mauris. Aliquam purus felis, pretium vel pretium vitae, dapibus sodales ante. Suspendisse potenti. Duis nunc eros.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer py-3 border-top">
+        <div class="container my-4">
+            <div class="links"></div>
+            <div class="social-icons"><a class="me-3" href="https://github.com/AhmedAlfahdi"><i class="icon ion-social-github"></i></a><a class="me-3" href="www.linkedin.com/in/AhmedAlfahdi"><i class="icon ion-social-linkedin"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Dark-Mode-Switch-darkmode.js"></script>
+    <script src="assets/js/Lightswitch-lightswitch.js"></script>
+    <script src="assets/js/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
