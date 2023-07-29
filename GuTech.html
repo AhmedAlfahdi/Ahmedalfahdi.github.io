@@ -1,0 +1,109 @@
+<!DOCTYPE html><html data-bs-theme="auto"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Hire me - Brand</title>
+			<script>
+(function() {
+
+	// JavaScript snippet handling Dark/Light mode switching
+
+	const getStoredTheme = () => localStorage.getItem('theme');
+	const setStoredTheme = theme => localStorage.setItem('theme', theme);
+	const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+	const getPreferredTheme = () => {
+
+		if (forcedTheme) return forcedTheme;
+
+		const storedTheme = getStoredTheme();
+		if (storedTheme) {
+			return storedTheme;
+		}
+
+		const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+		if (pageTheme) {
+			return pageTheme;
+		}
+
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	const setTheme = theme => {
+		if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.setAttribute('data-bs-theme', 'dark');
+		} else {
+			document.documentElement.setAttribute('data-bs-theme', theme);
+		}
+	}
+
+	setTheme(getPreferredTheme());
+
+	const showActiveTheme = (theme, focus = false) => {
+		const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+		if (!themeSwitchers.length) return;
+
+		for (const themeSwitcher of themeSwitchers) {
+
+			const themeSwitcherText = document.querySelector('#theme-text');
+			const activeThemeIcon = document.querySelector('.theme-icon-active use');
+			const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+			document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+				element.classList.remove('active');
+				element.setAttribute('aria-pressed', 'false');
+			});
+
+			btnToActive.classList.add('active');
+			btnToActive.setAttribute('aria-pressed', 'true');
+		}
+	}
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+		const storedTheme = getStoredTheme();
+		if (storedTheme !== 'light' && storedTheme !== 'dark') {
+			setTheme(getPreferredTheme());
+		}
+	});
+
+	window.addEventListener('DOMContentLoaded', () => {
+		showActiveTheme(getPreferredTheme());
+
+		document.querySelectorAll('[data-bs-theme-value]')
+			.forEach(toggle => {
+				toggle.addEventListener('click', (e) => {
+					e.preventDefault();
+					const theme = toggle.getAttribute('data-bs-theme-value');
+					setStoredTheme(theme);
+					setTheme(theme);
+					showActiveTheme(theme);
+				})
+			})
+	});
+})();
+</script><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="assets/fonts/ionicons.min.css"><link rel="stylesheet" href="assets/css/styles.min.css"></head><body><nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-opacity-25 portfolio-navbar gradient"><div class="container"><a class="navbar-brand logo" href="Home.html">Ahmed N. Al Fahdi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li><li class="nav-item"><a class="nav-link" href="PDO.html">PDO</a></li><li class="nav-item"><a class="nav-link active" href="GuTech.html">GuTech</a></li><li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="HomeServer.html">Other Projects</a><div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="HomeServer.html">Home server</a><div class="dropdown-divider"></div><h6 class="dropdown-header">Upcoming Projects&nbsp;</h6><a class="dropdown-item" href="#">Game Dev.</a><a class="dropdown-item" href="#">Web Dev.</a><a class="dropdown-item" href="#">Blog &amp; articles&nbsp;</a></div></li></ul></div>
+<div class="form-check form-switch ms-auto mt-3 me-3">
+  <label class="form-check-label ms-3" for="lightSwitch">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="currentColor"
+      id="lightswitchLightIcon"
+      class="bi bi-brightness-high"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+      />
+    </svg>
+      <svg xmlns="http://www.w3.org/2000/svg"
+      id="lightswitchDarkIcon"
+      fill="currentColor"
+      class="bi bi-brightness-high"
+      width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
+<path d="M9.882 5.052c-0.847 1.717-1.295 3.614-1.295 5.564 0 6.977 5.676 12.653 12.653 12.653 2.052 0 4.035-0.489 5.812-1.412-2.15 3.869-6.248 6.37-10.862 6.37-6.866 0-12.451-5.585-12.451-12.451 0-4.491 2.409-8.533 6.143-10.724zM12.79 2.707c-5.817 1.509-10.118 6.78-10.118 13.069 0 7.465 6.053 13.517 13.518 13.517 6.387 0 11.726-4.435 13.139-10.389-2.087 2.039-4.939 3.298-8.088 3.298-6.399 0-11.587-5.188-11.587-11.587 0-3.061 1.196-5.838 3.137-7.909v0z">
+
+</path>
+</svg>
+  </label>
+  <input title="Toggle dark mode" placeholer="" class="form-check-input lightswitch-enlarge" type="checkbox" id="lightSwitch" />
+</div></div></nav><main class="page hire-me-page"><section class="portfolio-block hire-me" style="border-color: var(--bs-tertiary-color);"><article class="py-4 py-xl-5"><div class="container py-4 py-xl-5"><h2 class="text-uppercase fw-bold text-center"><br>Under CONSTRUCTION 🚧&nbsp;</h2><div class="row gy-4 gy-md-0"><div class="col-md-6 d-md-flex align-items-md-center"><div style="max-width: 350px;"></div></div></div></div></article></section></main><footer class="page-footer py-3 border-top"><div class="container my-4"><div class="links"></div><div class="social-icons"><a class="me-3" href="https://github.com/AhmedAlfahdi"><i class="icon ion-social-github"></i></a><a class="me-3" href="www.linkedin.com/in/AhmedAlfahdi"><i class="icon ion-social-linkedin"></i></a></div></div></footer><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
